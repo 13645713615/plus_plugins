@@ -80,11 +80,14 @@ internal class MethodCallHandlerImpl(
             build["displayMetrics"] = displayResult
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                build["serialNumber"] = try {
-                    Build.getSerial()
-                } catch (ex: SecurityException) {
-                    Build.UNKNOWN
-                }
+              /**
+               * build["serialNumber"] = try {
+               *     Build.getSerial()
+               * } catch (ex: SecurityException) {
+               *     Build.UNKNOWN
+               * }
+               */
+                build["serialNumber"] = Build.UNKNOWN
             } else {
                 build["serialNumber"] = Build.SERIAL
             }
